@@ -1,0 +1,36 @@
+.Container {
+  background: #ccc;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.Container__frames {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 1s ease all;
+}
+
+.Container__frames.showFrames {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.Container__frames.hideFrames {
+  opacity: 0;
+  /*transform: translateY(-20px);*/
+}
+
+.Container__scene {
+  width: 80%;
+  height: 100%;
+  border: #333;
+  background: #fff;
+  margin-left: 40px;
+  box-sizing: border-box;
+}
