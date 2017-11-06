@@ -1,14 +1,34 @@
+import PropTypes from "prop-types";
 import React, { Component } from "react";
-// import './Container.css';
+import "./Frame.css";
 
-// This is the parent container
+class Frame extends Component {
+  state = {
+    image: this.props.image,
+    text: this.props.text,
+  }
 
-class Frame extends Component<Props> {
-  // image: string (url)
-  // text: string
+  static propTypes = {
+    image: PropTypes.string,
+    text: PropTypes.string
+  };
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.image !== this.props.image) {
+      window.setTimeout(()=>{
+        this.setState({image: this.props.image, text: this.state.text});
+      }, 1000);
+    }
+  }
+  getFrameStyle = () => {
+    return {
+      background: "url(" + this.state.image + ") center center",
+      backgroundSize: this.state.image ? "cover" : "cover",
+    };
+  };
 
   render() {
-    return <div className="Frame" />;
+    return <div className="Frame" style={this.getFrameStyle()}/>;
   }
 }
 
