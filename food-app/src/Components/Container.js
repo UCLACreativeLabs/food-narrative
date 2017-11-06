@@ -6,6 +6,7 @@ import Frame from "./Frame";
 
 class Container extends Component {
   render() {
+  	console.log(this.props.config)
     return (
       <div className="Container">
         <Frame name="Rishabh" />

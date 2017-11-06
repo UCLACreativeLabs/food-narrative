@@ -1,4 +1,4 @@
-config: {
+var config = {
 	"containers": [
 		{
 			"containerId": "E1",	
@@ -97,3 +97,4 @@ config: {
 
 	]
 }
+module.exports = config
