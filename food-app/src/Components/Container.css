@@ -25,12 +25,3 @@
   opacity: 0;
   /*transform: translateY(-20px);*/
 }
-
-.Container__scene {
-  width: 80%;
-  height: 100%;
-  border: #333;
-  background: #fff;
-  margin-left: 40px;
-  box-sizing: border-box;
-}

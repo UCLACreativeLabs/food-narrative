@@ -35,7 +35,14 @@ class App extends Component {
 
   renderContainer(){
     var containerConfig = config.containers.filter(c => c.containerId === this.state.containerId)[0];
-    return <Container containerId={containerConfig.containerId} config={containerConfig}/>
+    const {
+      containerId,
+      frames,
+      scene,
+      music
+    } = containerConfig;
+    // return <Container containerId={containerConfig.containerId} config={containerConfig}/>
+    return <Container containerId={containerId} frames={frames} scene={scene} music={music}/>
   }
 
   render() {

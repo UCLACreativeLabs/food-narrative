@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import React, { Component } from "react";
 import "./Container.css";
 import Frame from "./Frame";
+import Scene from "./Scene";
 
 // This is the parent container
 
@@ -17,6 +18,7 @@ class Container extends Component {
     music: PropTypes.string
   };
 
+
   fadeOut = () => {
     this.setState({framesClass: "hideFrames"});
     window.setTimeout(()=>{
@@ -31,9 +33,8 @@ class Container extends Component {
   }
 
   render() {
-  	console.log(this.props.config)
-    const { containerId, frames, scene, music } = this.props.config;
-    console.log(frames)
+    console.log(this.props.containerId, this.props.frames);
+    const { containerId, frames, scene, music } = this.props;
     return (
       <div className="Container">
         <div className={"Container__frames " + this.state.framesClass}>
@@ -41,7 +42,7 @@ class Container extends Component {
           <Frame image={frames[1].image} text={frames[1].text} />
           <Frame image={frames[2].image} text={frames[2].text} />
         </div>
-        <div className="Container__scene" />
+        <Scene layers={this.props.scene.layers}/>
       </div>
     );
   }

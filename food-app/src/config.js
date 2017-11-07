@@ -8,7 +8,7 @@ import frame3a from "./images/sample/3a.png";
 var config = {
 	"containers": [
 		{
-			"containerId": "E1",	
+			"containerId": "E1",
 			"frames": [
 				{
 					"image": frame1,
@@ -33,17 +33,17 @@ var config = {
 					},
 					{
 						"order": 2,
-						"image": "http://via.placeholder.com/1000x500",
+						"image": "http://via.placeholder.com/1000x600",
 						"elements": []
 					},
 					{
 						"order": 3,
-						"image": "http://via.placeholder.com/1000x500",
+						"image": "http://via.placeholder.com/1000x700",
 						"elements": []
 					},
 					{
 						"order": 4,
-						"image": "http://via.placeholder.com/1000x500",
+						"image": "http://via.placeholder.com/1000x800",
 						"elements": [
 							{
 								"name": "person1"
@@ -55,7 +55,7 @@ var config = {
 			"music": "soundcloudlink",
 		},
 		{
-			"containerId": "E2",	
+			"containerId": "E2",
 			"frames": [
 				{
 					"image": frame1a,
