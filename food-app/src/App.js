@@ -43,9 +43,6 @@ class App extends Component {
       <div className="App">
         {this.renderContainer()}
       </div>
-      <div className="Control">
-        {this.renderControl()}
-      </div>
     );
   }
 }
