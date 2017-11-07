@@ -48,32 +48,21 @@ const state2 = {
 
 class App extends Component {
   state = {
-    containerId: "E1",
-    frames: [
-      {
-        image: frame1,
-        text: "First Scene"
-      },
-      {
-        image: frame2
-      },
-      {
-        image: frame3
-      }
-    ],
-    scene: null,
-    music: null
+    containerId: "E1"
   };
 
   componentDidMount() {
     let stateFlag = 1;
     window.addEventListener("click", () => {
       if(stateFlag === 1) {
-        //todo: app just need to keep track of containerId now instead of the whole state
-        this.setState(state2);
+        this.setState({
+          containerId: "E2"
+        });
         stateFlag = 2;
       } else {
-        this.setState(state1);
+        this.setState({
+          containerId: "E2"
+        });
         stateFlag = 1;
       }
     });

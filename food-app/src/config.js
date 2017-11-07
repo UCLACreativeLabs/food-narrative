@@ -1,18 +1,25 @@
+import frame1 from "./images/sample/1.png";
+import frame2 from "./images/sample/2.png";
+import frame3 from "./images/sample/3.png";
+import frame1a from "./images/sample/1a.jpg";
+import frame2a from "./images/sample/2a.gif";
+import frame3a from "./images/sample/3a.png";
+
 var config = {
 	"containers": [
 		{
 			"containerId": "E1",	
 			"frames": [
 				{
-					"image": "http://via.placeholder.com/350x150",
+					"image": frame1,
 					"text": "frameE1-1",
 				},
 				{
-					"image": "http://via.placeholder.com/350x150",
+					"image": frame2,
 					"text": "frameE1-2",
 				},
 				{
-					"image": "http://via.placeholder.com/350x150",
+					"image": frame3,
 					"text": "frameE1-3",
 				}
 
@@ -51,15 +58,15 @@ var config = {
 			"containerId": "E2",	
 			"frames": [
 				{
-					"image": "http://via.placeholder.com/350x150",
+					"image": frame1a,
 					"text": "frameE2-1",
 				},
 				{
-					"image": "http://via.placeholder.com/350x150",
+					"image": frame2a,
 					"text": "frameE2-2",
 				},
 				{
-					"image": "http://via.placeholder.com/350x150",
+					"image": frame3a,
 					"text": "frameE2-3",
 				}
 
@@ -97,4 +104,4 @@ var config = {
 
 	]
 }
-module.exports = config
+export default config
