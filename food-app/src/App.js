@@ -10,41 +10,6 @@ import frame1a from "./images/sample/1a.jpg";
 import frame2a from "./images/sample/2a.gif";
 import frame3a from "./images/sample/3a.png";
 
-const state1 = {
-  containerId: "E1",
-  frames: [
-    {
-      image: frame1,
-      text: "First Scene"
-    },
-    {
-      image: frame2
-    },
-    {
-      image: frame3
-    }
-  ],
-  scene: null,
-  music: null
-};
-
-const state2 = {
-  containerId: "E2",
-  frames: [
-    {
-      image: frame1a,
-      text: "First Scene"
-    },
-    {
-      image: frame2a
-    },
-    {
-      image: frame3a
-    }
-  ],
-  scene: null,
-  music: null
-};
 
 class App extends Component {
   state = {
@@ -77,6 +42,9 @@ class App extends Component {
     return (
       <div className="App">
         {this.renderContainer()}
+      </div>
+      <div className="Control">
+        {this.renderControl()}
       </div>
     );
   }
