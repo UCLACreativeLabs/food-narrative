@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import "./Container.css";
 import Frame from "./Frame";
 import Scene from "./Scene";
+import Coordinates from "./Coordinates";
 
 // This is the parent container
 
@@ -43,6 +44,7 @@ class Container extends Component {
           <Frame image={frames[2].image} text={frames[2].text} />
         </div>
         <Scene layers={this.props.scene.layers}/>
+        <Coordinates/>
       </div>
     );
   }

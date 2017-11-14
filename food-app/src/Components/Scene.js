@@ -5,7 +5,9 @@ import Layer from "./Layer";
 
 class Scene extends Component {
   state = {
-    layers: this.props.layers
+    layers: this.props.layers,
+    // x: 0,
+    // y: 0
   };
 
   static propTypes = {
@@ -20,7 +22,16 @@ class Scene extends Component {
     }
   }
 
+  // _onMouseMove(e){
+  //   this.setState({
+  //     layers: this.props.layers,
+  //     x: e.screenX,
+  //     y: e.screenY
+  //   });
+  // }
+
   render() {
+    // const { l, x, y } = this.state;
     return (
       <div className="Scene">
         {this.props.layers
@@ -32,6 +43,7 @@ class Scene extends Component {
               />
             ))
           : null}
+
       </div>
     );
   }
