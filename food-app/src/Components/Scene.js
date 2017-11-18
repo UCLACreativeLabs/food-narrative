@@ -6,8 +6,8 @@ import Layer from "./Layer";
 class Scene extends Component {
   state = {
     layers: this.props.layers,
-    // x: 0,
-    // y: 0
+    x: 0,
+    y: 0
   };
 
   static propTypes = {
@@ -22,18 +22,19 @@ class Scene extends Component {
     }
   }
 
-  // _onMouseMove(e){
-  //   this.setState({
-  //     layers: this.props.layers,
-  //     x: e.screenX,
-  //     y: e.screenY
-  //   });
-  // }
+  _onMouseMove(e){
+    this.setState({
+      layers: this.props.layers,
+      x: e.screenX,
+      y: e.screenY
+    });
+    console.log(e.screenX + " " + e.screenY);
+  }
 
   render() {
-    // const { l, x, y } = this.state;
+    const { l, x, y } = this.state;
     return (
-      <div className="Scene">
+      <div className="Scene" onMouseMove={this._onMouseMove.bind(this)}>
         {this.props.layers
           ? this.props.layers.map(layer => (
               <Layer

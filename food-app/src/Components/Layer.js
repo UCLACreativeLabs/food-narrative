@@ -12,6 +12,8 @@ class Layer extends Component {
     order: PropTypes.number,
     image: PropTypes.string,
     elements: PropTypes.array,
+    // add coordinates from Scene
+    
   };
 
   componentWillReceiveProps(nextProps) {
@@ -25,6 +27,7 @@ class Layer extends Component {
     return {
       background: "url(" + this.state.image + ") center center",
       backgroundSize: this.state.image ? "cover" : "cover",
+
     };
   };
 
