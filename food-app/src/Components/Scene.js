@@ -28,11 +28,11 @@ class Scene extends Component {
       x: e.screenX,
       y: e.screenY
     });
-    console.log(e.screenX + " " + e.screenY);
+    // console.log(e.screenX + " " + e.screenY);
   }
 
   render() {
-    const { l, x, y } = this.state;
+
     return (
       <div className="Scene" onMouseMove={this._onMouseMove.bind(this)}>
         {this.props.layers
@@ -41,6 +41,8 @@ class Scene extends Component {
                 order={layer.order}
                 image={layer.image}
                 elements={layer.elements}
+                x={this.state.x}
+                y={this.state.y}
               />
             ))
           : null}
@@ -49,5 +51,5 @@ class Scene extends Component {
     );
   }
 }
-
+// hide overflow
 export default Scene;

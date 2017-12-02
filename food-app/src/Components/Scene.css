@@ -6,4 +6,5 @@
   margin-left: 40px;
   box-sizing: border-box;
   position: relative;
+  overflow: hidden;
 }
