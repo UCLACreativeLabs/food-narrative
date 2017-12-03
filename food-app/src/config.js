@@ -55,6 +55,7 @@ var config = {
 				]
 			},
 			"music": "soundcloudlink",
+			"caption": "Container 1 text"
 		},
 		{
 			"containerId": "E2",
@@ -102,6 +103,7 @@ var config = {
 				]
 			},
 			"music": "soundcloudlink",
+			"caption": "Container 2 text"
 		},
 
 	]

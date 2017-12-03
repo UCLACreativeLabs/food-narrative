@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import React, { Component } from "react";
 import "./Scene.css";
 import Layer from "./Layer";
+import Caption from "./Caption";
 
 class Scene extends Component {
   state = {
@@ -11,7 +12,8 @@ class Scene extends Component {
   };
 
   static propTypes = {
-    layers: PropTypes.array
+    layers: PropTypes.array,
+    caption: PropTypes.string
   };
 
   componentWillReceiveProps(nextProps) {
@@ -34,7 +36,7 @@ class Scene extends Component {
   // add component
 
   render() {
-
+    
     return (
       <div className="Scene" onMouseMove={this._onMouseMove.bind(this)}>
         {this.props.layers
@@ -48,7 +50,7 @@ class Scene extends Component {
               />
             ))
           : null}
-
+          <Caption text={this.props.caption}/>
       </div>
     );
   }

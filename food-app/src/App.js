@@ -39,10 +39,11 @@ class App extends Component {
       containerId,
       frames,
       scene,
-      music
+      music,
+      caption
     } = containerConfig;
     // return <Container containerId={containerConfig.containerId} config={containerConfig}/>
-    return <Container containerId={containerId} frames={frames} scene={scene} music={music}/>
+    return <Container containerId={containerId} frames={frames} scene={scene} music={music} caption={caption}/>
   }
 
   render() {

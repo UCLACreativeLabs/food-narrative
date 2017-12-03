@@ -16,7 +16,8 @@ class Container extends Component {
     containerId: PropTypes.string,
     frames: PropTypes.array,
     scene: PropTypes.object,
-    music: PropTypes.string
+    music: PropTypes.string,
+    caption: PropTypes.string
   };
 
 
@@ -35,7 +36,7 @@ class Container extends Component {
 
   render() {
     console.log(this.props.containerId, this.props.frames);
-    const { containerId, frames, scene, music } = this.props;
+    const { containerId, frames, scene, music, caption } = this.props;
     return (
       <div className="Container">
         <div className={"Container__frames " + this.state.framesClass}>
@@ -43,8 +44,8 @@ class Container extends Component {
           <Frame image={frames[1].image} text={frames[1].text} />
           <Frame image={frames[2].image} text={frames[2].text} />
         </div>
-        <Scene layers={this.props.scene.layers}/>
-        
+        <Scene layers={this.props.scene.layers} caption={this.props.caption}/>
+
       </div>
     );
   }
