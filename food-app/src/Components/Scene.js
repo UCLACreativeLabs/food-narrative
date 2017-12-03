@@ -31,6 +31,8 @@ class Scene extends Component {
     // console.log(e.screenX + " " + e.screenY);
   }
 
+  // add component
+
   render() {
 
     return (

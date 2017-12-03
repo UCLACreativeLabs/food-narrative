@@ -5,6 +5,8 @@ import frame1a from "./images/sample/1a.jpg";
 import frame2a from "./images/sample/2a.gif";
 import frame3a from "./images/sample/3a.png";
 
+// add text to container
+
 var config = {
 	"containers": [
 		{
