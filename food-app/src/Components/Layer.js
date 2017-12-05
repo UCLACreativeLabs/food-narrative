@@ -13,12 +13,12 @@ function getPosition(el) {
       var xScroll = el.scrollLeft || document.documentElement.scrollLeft;
       var yScroll = el.scrollTop || document.documentElement.scrollTop;
 
-      xPos += (el.offsetLeft - xScroll + el.clientLeft);
-      yPos += (el.offsetTop - yScroll + el.clientTop);
+      xPos += el.offsetLeft - xScroll + el.clientLeft;
+      yPos += el.offsetTop - yScroll + el.clientTop;
     } else {
       // for all other non-BODY elements
-      xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft);
-      yPos += (el.offsetTop - el.scrollTop + el.clientTop);
+      xPos += el.offsetLeft - el.scrollLeft + el.clientLeft;
+      yPos += el.offsetTop - el.scrollTop + el.clientTop;
     }
 
     el = el.offsetParent;
@@ -41,7 +41,7 @@ class Layer extends Component {
     width: 0,
     xpos: 0,
     ypos: 0
-  }
+  };
 
   static propTypes = {
     order: PropTypes.number,
@@ -49,20 +49,20 @@ class Layer extends Component {
     elements: PropTypes.array,
     //coordinates from Scene
     x: PropTypes.number,
-    y: PropTypes.number
+    y: PropTypes.number,
+    changeScene: PropTypes.function,
   };
 
   componentWillReceiveProps(nextProps) {
-    if(nextProps.image !== this.props.image) {
-      window.setTimeout(()=>{
-        this.setState({image: this.props.image, text: this.state.text});
-      }, 1000);
+    if (nextProps.image !== this.props.image) {
+      window.setTimeout(() => {
+        this.setState({ image: nextProps.image, text: nextProps.text, elements: nextProps.elements, });
+      }, 2000);
     }
   }
 
   // not responsive to changing width after render
-  componentDidMount(){
-
+  componentDidMount() {
     var element = document.getElementsByClassName("Scene")[0];
     var h = element.offsetHeight;
     var w = element.offsetWidth;
@@ -76,20 +76,18 @@ class Layer extends Component {
       width: w,
       xpos: x,
       ypos: y
-    }
+    };
 
     this.setState(newState);
-
   }
 
   getLayerStyle = () => {
-
     var order = this.props.order;
     var x = this.props.x;
     var y = this.props.y;
 
-    var width = this.state.width/2;
-    var height = this.state.height/2;
+    var width = this.state.width / 2;
+    var height = this.state.height / 2;
 
     var centerX = this.state.xpos + width;
     var centerY = this.state.ypos + height;
@@ -100,13 +98,34 @@ class Layer extends Component {
     return {
       background: "url(" + this.state.image + ") center center",
       backgroundSize: this.state.image ? "cover" : "cover",
-      transform: "translateX(" + distX * -0.05 * order + "px) translateY(" + distY * -0.05 * order + "px)"
+      transform:
+        "scale(1.1) translateX(" +
+        distX * -0.05 * order +
+        "px) translateY(" +
+        distY * -0.05 * order +
+        "px)"
     };
+  };
 
+  getElemStyle = (element) => {
+    return {
+      background: "url(" + element.image + ") center center",
+      backgroundSize: element.image ? "cover" : "cover",
+      width: (element.width * 100/ 1920) + "%",
+      height: (element.height * 100/ 1080) + "%",
+      top: element.y + "%",
+      left: element.x + "%",
+    }
   };
 
   render() {
-    return <div className="Layer" style={this.getLayerStyle()} />;
+    return (
+      <div className="Layer" style={this.getLayerStyle()}>
+        {this.state.elements.map(element => (
+          <div className="Layer__element" style={this.getElemStyle(element)} />
+        ))}
+      </div>
+    );
   }
 }
 

@@ -1,7 +1,18 @@
 .Layer {
   width: 100%;
   height: 100%;
-  opacity: 0.5;
+  opacity: 1;
   background-size: cover !important;
   position: absolute;
+}
+
+.Layer__element {
+  position: absolute;
+  cursor: pointer;
+  transform: scale(1);
+  transition: 0.2s ease all;
+}
+
+.Layer__element:hover {
+    transform: scale(1.05);
 }

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Container from "./Components/Container";
-import config from "./config.js"
+import config from "./config.js";
 import frame1 from "./images/sample/1.png";
 import frame2 from "./images/sample/2.png";
 import frame3 from "./images/sample/3.png";
@@ -10,48 +10,52 @@ import frame1a from "./images/sample/1a.jpg";
 import frame2a from "./images/sample/2a.gif";
 import frame3a from "./images/sample/3a.png";
 
-
 class App extends Component {
   state = {
-    containerId: "E1"
+    containerId: "H1"
   };
 
   componentDidMount() {
     let stateFlag = 1;
-    window.addEventListener("click", () => {
-      if(stateFlag === 1) {
+    window.addEventListener("keypress", (e) => {
+      if(e.which === 49) {
         this.setState({
-          containerId: "E2"
+          containerId: "H1"
         });
-        stateFlag = 2;
-      } else {
+      } else if(e.which === 50) {
         this.setState({
-          containerId: "E2"
+          containerId: "P1"
         });
-        stateFlag = 1;
       }
     });
   }
 
-  renderContainer(){
-    var containerConfig = config.containers.filter(c => c.containerId === this.state.containerId)[0];
-    const {
-      containerId,
-      frames,
-      scene,
-      music,
-      caption
-    } = containerConfig;
+  changeScene = (sceneName) => {
+    // this.setState({
+    //   containerId: sceneName,
+    // });
+  };
+
+  renderContainer() {
+    var containerConfig = config.containers.filter(
+      c => c.containerId === this.state.containerId
+    )[0];
+    const { containerId, frames, scene, music, caption } = containerConfig;
     // return <Container containerId={containerConfig.containerId} config={containerConfig}/>
-    return <Container containerId={containerId} frames={frames} scene={scene} music={music} caption={caption}/>
+    return (
+      <Container
+        containerId={containerId}
+        frames={frames}
+        scene={scene}
+        music={music}
+        caption={caption}
+        changeScene={this.changeScene}
+      />
+    );
   }
 
   render() {
-    return (
-      <div className="App">
-        {this.renderContainer()}
-      </div>
-    );
+    return <div className="App">{this.renderContainer()}</div>;
   }
 }
 

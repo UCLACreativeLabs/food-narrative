@@ -1,10 +1,31 @@
 .Scene {
-  width: 80%;
-  height: 100%;
+  width: 100%;
+  height: 80%;
+  margin-top: 0px;
   border: #333;
   background: #fff;
-  margin-left: 40px;
+  margin-left: 0px;
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
+}
+
+.Scene {
+  opacity: 0;
+  transition: 2s ease all;
+}
+
+.Scene.H1 {
+  height: 100%;
+  margin-top: 0px;
+}
+
+.Scene.showFrames {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.Scene.hideFrames {
+  opacity: 0;
+  /*transform: translateY(-20px);*/
 }

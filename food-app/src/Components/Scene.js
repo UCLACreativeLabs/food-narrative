@@ -8,19 +8,31 @@ class Scene extends Component {
   state = {
     layers: this.props.layers,
     x: 0,
-    y: 0
+    y: 0,
+    framesClass: "hideFrames",
   };
 
   static propTypes = {
     layers: PropTypes.array,
-    caption: PropTypes.string
+    caption: PropTypes.array,
+    id: PropTypes.string,
+    changeScene: PropTypes.function,
   };
 
+  fadeOut = () => {
+    this.setState({framesClass: "hideFrames"});
+    window.setTimeout(()=>{
+      this.setState({framesClass: "showFrames"});
+    }, 2000);
+  };
+
+  componentDidMount() {
+    this.fadeOut();
+  }
+
   componentWillReceiveProps(nextProps) {
-    if (nextProps.image !== this.props.image) {
-      window.setTimeout(() => {
-        this.setState({ image: this.props.image, text: this.state.text });
-      }, 1000);
+    if (nextProps.id !== this.props.id) {
+      this.fadeOut();
     }
   }
 
@@ -36,9 +48,9 @@ class Scene extends Component {
   // add component
 
   render() {
-    
+
     return (
-      <div className="Scene" onMouseMove={this._onMouseMove.bind(this)}>
+      <div className={"Scene " + this.state.framesClass + " " + this.props.id} onMouseMove={this._onMouseMove.bind(this)}>
         {this.props.layers
           ? this.props.layers.map(layer => (
               <Layer
@@ -47,10 +59,10 @@ class Scene extends Component {
                 elements={layer.elements}
                 x={this.state.x}
                 y={this.state.y}
+                changeScene={this.props.changeScene}
               />
             ))
           : null}
-          <Caption text={this.props.caption}/>
       </div>
     );
   }
