@@ -26,6 +26,38 @@ class App extends Component {
         this.setState({
           containerId: "P1"
         });
+      } else if(e.which === 51) {
+        this.setState({
+          containerId: "P2day"
+        });
+      } else if(e.which === 52) {
+        this.setState({
+          containerId: "P2"
+        });
+      } else if(e.which === 53) {
+        this.setState({
+          containerId: "C1"
+        });
+      } else if(e.which === 54) {
+        this.setState({
+          containerId: "C2"
+        });
+      } else if(e.which === 55) {
+        this.setState({
+          containerId: "C3"
+        });
+      } else if(e.which === 56) {
+        this.setState({
+          containerId: "I1"
+        });
+      } else if(e.which === 57) {
+        this.setState({
+          containerId: "I2"
+        });
+      } else if(e.which === 48) {
+        this.setState({
+          containerId: "I3"
+        });
       }
     });
   }

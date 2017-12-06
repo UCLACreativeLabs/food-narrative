@@ -54,6 +54,7 @@ class Layer extends Component {
   };
 
   componentWillReceiveProps(nextProps) {
+    // this.setState({elements: [],})
     if (nextProps.image !== this.props.image) {
       window.setTimeout(() => {
         this.setState({ image: nextProps.image, text: nextProps.text, elements: nextProps.elements, });
@@ -121,9 +122,9 @@ class Layer extends Component {
   render() {
     return (
       <div className="Layer" style={this.getLayerStyle()}>
-        {this.state.elements.map(element => (
+        {this.state.elements.length ? this.state.elements.map(element => (
           <div className="Layer__element" style={this.getElemStyle(element)} />
-        ))}
+        )) : null}
       </div>
     );
   }
